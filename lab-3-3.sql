@@ -1,6 +1,6 @@
 -- In the modern era (1960-present), how many regular season games did the best team win each season?
 -- Challenge: Try to include the team's name in the results. Is it accurate?
-
+-- 
 -- Expected result: 61 rows, starting with
 --
 -- +------+-------------------------------+-----------+
@@ -15,4 +15,10 @@
 -- | 2019 | Houston Astros                | 107       |
 -- | 2004 | St. Louis Cardinals           | 105       |
 
+SELECT year,name,MAX(wins)
+FROM teams
+WHERE year>=1960
+GROUP BY year
+ORDER BY Max(wins) DESC;
 
+-- WHen you are using Group By - the only thing in Group by can be in SELECT or there can be an aggregate function - you cant have anything else there as it may look right but it could be wrong as well
