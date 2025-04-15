@@ -24,4 +24,17 @@
 -- | Billy      | Hamilton  |
 -- | Ian        | Happ      |
 
+SELECT players.first_name, players.last_name
+FROM stats 
+INNER JOIN teams ON teams.id = stats.team_id
+INNER JOIN players ON players.id = stats.player_id
+WHERE teams.year = 2020
+AND teams.name = "Chicago Cubs";
 
+-- I had used the following code and it did not work. Why did this not work?
+
+-- SELECT players.first_name, players.last_name
+-- FROM players
+-- INNER JOIN stats ON stats.player_id = players.id
+-- INNER JOIN stats ON stats.team_id = teams.id
+-- WHERE teams.name = "Chicago Cubs" AND teams.year = 2020;
